@@ -16,8 +16,10 @@ namespace PokemonBattle
     {
         public Pokemon pokemon;
         public bool isOpen;
+        public bool used;
         public Pokeball(Pokemon pokemon) {
             this.pokemon = pokemon;
+            this.used = false;
         }
         public void Open()
         {
