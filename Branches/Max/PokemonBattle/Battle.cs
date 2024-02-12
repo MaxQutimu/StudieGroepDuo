@@ -50,6 +50,7 @@ namespace PokemonBattle
         public void ElementalBattle()
         {
             // Call ThrowBall for both trainers to choose their Pokémon
+            Console.WriteLine("Battle: " + Arena.BattlesUp());
 
             string LastWinner = "";
             Pokemon pokemon1 = ThrowBall(trainer1);
@@ -58,6 +59,7 @@ namespace PokemonBattle
            
 
             while (!trainer1.belt.All(p => p.used) && !trainer2.belt.All(p => p.used)){
+                Console.WriteLine("Round: " + Arena.RoundUp());
                 if (tie == true){
                     if(LastWinner != trainer1.name)
                     {

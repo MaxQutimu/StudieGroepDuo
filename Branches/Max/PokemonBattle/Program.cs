@@ -48,11 +48,11 @@ class PokemonBattleProgram
         TrainerOne.name = Console.ReadLine();
         Console.WriteLine("Giva a name to second trainer");
         TrainerTwo.name = Console.ReadLine();
+        Arena arena = new Arena();
+        arena.ArenaBattle(TrainerOne, TrainerTwo);
 
-        Battle battleOne = new Battle(TrainerOne, TrainerTwo);
 
-      
-       
+
     }
 }
 
