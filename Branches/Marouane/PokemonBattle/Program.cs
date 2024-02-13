@@ -17,35 +17,42 @@ class PokemonBattleProgram
         Bulbasaur bulbasaur_Grassy = new Bulbasaur("Grassy dude");
         Squirtle Squirtle_watery = new Squirtle("Wet dude");
 
-        // Create instances of Pokeball using constructor
-        Pokeball Flamey_pokeball = new Pokeball(charmander_Flamey);
-        Pokeball Grassy_pokeball = new Pokeball(bulbasaur_Grassy);
-        Pokeball Wet_pokeball = new Pokeball(Squirtle_watery);
-
+       
         // Create a List
-        List<Pokeball> belt = new List<Pokeball>();
-
-        // Add pokeballs to list
-        for (int i = 0; i < 2; i++)
+        List<Pokeball> belt1 = new List<Pokeball>
         {
-            belt.Add(Flamey_pokeball);
-            belt.Add(Grassy_pokeball);
-            belt.Add(Wet_pokeball);
-        }
+            new Pokeball(charmander_Flamey),
+            new Pokeball(bulbasaur_Grassy),
+            new Pokeball(Squirtle_watery),
+            new Pokeball(charmander_Flamey),
+            new Pokeball(bulbasaur_Grassy),
+            new Pokeball(Squirtle_watery)
+        };
+
+        List<Pokeball> belt2 = new List<Pokeball>
+        {
+            new Pokeball(charmander_Flamey),
+            new Pokeball(bulbasaur_Grassy),
+            new Pokeball(Squirtle_watery),
+            new Pokeball(charmander_Flamey),
+            new Pokeball(bulbasaur_Grassy),
+            new Pokeball(Squirtle_watery)
+        };
 
         // Create instances of Trainers using constructor
-        Trainer TrainerOne = new Trainer("", belt);
-        Trainer TrainerTwo = new Trainer("", belt);
+        Trainer TrainerOne = new Trainer("", belt1);
+        Trainer TrainerTwo = new Trainer("", belt2);
+       
         // Giving names to trainers
         Console.WriteLine("Giva a name to first trainer");
         TrainerOne.name = Console.ReadLine();
         Console.WriteLine("Giva a name to second trainer");
         TrainerTwo.name = Console.ReadLine();
+        Arena arena = new Arena();
+        arena.ArenaBattle(TrainerOne, TrainerTwo);
 
-        Battle battleOne = new Battle(TrainerOne, TrainerTwo);
 
-      
-       
+
     }
 }
 
