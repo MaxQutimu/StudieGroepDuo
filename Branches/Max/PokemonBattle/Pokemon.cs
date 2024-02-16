@@ -1,152 +1,144 @@
-﻿//////////////////////////////////
-// Date 02.2024                 //
-// Author Maksymilian Ratajczak //
-// Pokemon Battle Game          //
-//////////////////////////////////
+﻿using System;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokemonBattle
+public enum PokemonType
 {
-    public enum PokemonType
+    Water,
+    Grass,
+    Fire,
+}
+
+public enum Strength
+{
+    Fire,
+    Water,
+    Grass,
+}
+
+public enum Weakness
+{
+    Fire,
+    Grass,
+    Water,
+}
+
+public abstract class Pokemon
+{
+    private string _name;
+    private string _nickname;
+    private PokemonType _type;
+    private Strength _strength;
+    private Weakness _weakness;
+
+    public string Name
     {
-        Water,
-        Grass,
-        Fire,
+        get { return _name; }
+        private set { _name = value; }
     }
 
-    public enum Strength
+    public string Nickname
     {
-        Fire,
-        Water,
-        Grass,
+        get { return _nickname; }
+        private set { _nickname = value; }
     }
 
-    public enum Weakness
+    public PokemonType Type
     {
-        Fire,
-        Grass,
-        Water,
+        get { return _type; }
+        private set { _type = value; }
     }
-    abstract class Pokemon
+
+    public Strength Strength
     {
-        // Properties with private setters for encapsulation
-        public string _name;
-        public string _nickname;
-        private PokemonType _type;
-        private Strength _strength;
-        private Weakness _weakness;
+        get { return _strength; }
+        private set { _strength = value; }
+    }
 
-        public string Name
-        {
-            get { return _name; }
-            private set { _name = value; }
-        }
+    public Weakness Weakness
+    {
+        get { return _weakness; }
+        private set { _weakness = value; }
+    }
 
-        public string Nickname
-        {
-            get { return _nickname; }
-            private set { _nickname = value; }
-        }
+    protected Pokemon(string name, string nickname, PokemonType type, Strength strength, Weakness weakness)
+    {
+        Name = name;
+        Nickname = nickname;
+        Type = type;
+        Strength = strength;
+        Weakness = weakness;
+    }
 
-        public PokemonType Type
-        {
-            get { return _type; }
-            private set { _type = value; }
-        }
+    public abstract string BattleCry();
 
-        public Strength Strength
-        {
-            get { return _strength; }
-            private set { _strength = value; }
-        }
+    // Method to display Pokemon information
+    protected void DisplayPokemonInfo()
+    {
+        Console.WriteLine($"Pokemon Name: {_name}");
+        Console.WriteLine($"   Pokemon Type: {_type}");
+        Console.WriteLine($"   Pokemon Strength: {_strength}");
+        Console.WriteLine($"   Pokemon Weakness: {_weakness}");
+    }
 
-        public Weakness Weakness
+    // Method to choose player's Pokemon name
+    protected void ChooseName()
+    {
+        Console.WriteLine("Choose a name for your Pokemon");
+        while (true)
         {
-            get { return _weakness; }
-            private set { _weakness = value; }
-        }
+            string chosenName = Console.ReadLine();
+            Console.WriteLine($"You chose a name for your Pokemon: {chosenName}");
+            Console.WriteLine($"Are you sure you want your Pokemon to be named: {chosenName} (Yes/No)");
+            string choiceConfirmation = Console.ReadLine().ToLower();
 
-        protected Pokemon(string name, string nickname, PokemonType type, Strength strength, Weakness weakness)
-        {
-            Name = name;
-            Nickname = nickname;
-            Type = type;
-            Strength = strength;
-            Weakness = weakness;
-        }
-        public abstract string battleCry();
-        // Method to display Pokemon information
-        static void DisplayPokemonInfo(Pokemon pokemon)
-        {
-            Console.WriteLine("Pokemon Name: " + pokemon.Name);
-            Console.WriteLine("   Pokemon Type: " + pokemon.Type);
-            Console.WriteLine("   Pokemon Strength: " + pokemon.Strength);
-            Console.WriteLine("   Pokemon Weakness: " + pokemon.Weakness);
-        }
-
-        // Method to choose player's pokemon name
-
-        static void ChooseName(Pokemon pokemon)
-        {
-            Console.WriteLine("Choose a name for your pokemon");
-            while (true)
+            if (choiceConfirmation == "yes")
             {
-                string ChosenName = Console.ReadLine();
-                Console.WriteLine("Your chose a name for your pokemon: " + ChosenName);
-                Console.WriteLine("Are you sure you want your pokemon to be named: " + ChosenName + " (Yes/No)");
-                string ChoiceConfirmation = Console.ReadLine().ToLower();
-
-                if (ChoiceConfirmation == "yes")
-                {
-                    pokemon.Nickname = ChosenName;
-                    break;
-                }
-                else if (ChoiceConfirmation == "no")
-                {
-                    Console.WriteLine("Choose a name for your pokemon");
-                }
-                else
-                {
-                    Console.WriteLine("Error try again");
-
-                }
+                Nickname = chosenName;
+                break;
+            }
+            else if (choiceConfirmation == "no")
+            {
+                Console.WriteLine("Choose a name for your Pokemon");
+            }
+            else
+            {
+                Console.WriteLine("Error, try again");
             }
         }
-
     }
-    class Squirtle : Pokemon
-    {
-        public Squirtle(string nickname) : base("Squirtle",nickname,"Water","Fire, Water, Ice , Steel","Electric, Grass") { 
-        }
+}
 
-        public override string battleCry()
-        {
-        return this.Name + " Uses Battle cry: " + this.Nickname;
-        }
-    } 
-    class Bulbasaur : Pokemon
+public sealed class Squirtle : Pokemon
+{
+    public Squirtle(string nickname) : base("Squirtle", nickname, PokemonType.Water, Strength.Water, Weakness.Grass)
     {
-        public Bulbasaur(string nickname) : base("Bulbasaur", nickname,"Grass","Water, Ground, Rock, Grass","Fire,Ice,Flying,Psychic") { 
-        }
-
-        public override string battleCry()
-        {
-        return this.Name + " Uses Battle cry: " + this.Nickname;
-        }
     }
-    class Charmander : Pokemon
-    {
-        public Charmander(string nickname) : base("Charmander", nickname,"Fire","Bug, Fairy, Fire, Grass, Ice, Steel","Ground, Rock, Water") { 
-        }
 
-        public override string battleCry()
-        {
-        return this.Name + " Uses Battle cry: " + this.Nickname;
-        }
+    public override string BattleCry()
+    {
+        return $"{Name} Uses Battle cry: {Nickname}";
+    }
+}
+
+public sealed class Bulbasaur : Pokemon
+{
+    public Bulbasaur(string nickname) : base("Bulbasaur", nickname, PokemonType.Grass, Strength.Grass, Weakness.Fire)
+    {
+    }
+
+    public override string BattleCry()
+    {
+        return $"{Name} Uses Battle cry: {Nickname}";
+    }
+}
+
+public sealed class Charmander : Pokemon
+{
+    public Charmander(string nickname) : base("Charmander", nickname, PokemonType.Fire, Strength.Fire, Weakness.Water)
+    {
+    }
+
+    public override string BattleCry()
+    {
+        return $"{Name} Uses Battle cry: {Nickname}";
     }
 }

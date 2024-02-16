@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PokemonBattle
-build_property.ProjectDir = C:\Users\qutim\Desktop\Szkoła\Duo\StudieGroepDuo\Futures\Max\PokemonBattle\
+build_property.ProjectDir = C:\Users\qutim\Desktop\Szkoła\Duo\StudieGroepDuo\Main\PokemonBattle\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

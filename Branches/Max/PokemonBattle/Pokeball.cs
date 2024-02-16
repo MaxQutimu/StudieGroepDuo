@@ -1,40 +1,49 @@
-﻿//////////////////////////////////
-// Date 02.2024                 //
-// Author Maksymilian Ratajczak //
-// Pokemon Battle Game          //
-//////////////////////////////////
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace PokemonBattle
 {
-    internal class Pokeball
+    class Pokeball
     {
-        public Pokemon pokemon;
-        public bool isOpen;
-        public bool used;
-        public Pokeball(Pokemon pokemon) {
-            this.pokemon = pokemon;
-            this.used = false;
+        private Pokemon _pokemon;
+        private bool _isOpen;
+        internal bool used;
+
+        public Pokemon Pokemon
+        {
+            get { return _pokemon; }
         }
+
+        public bool IsOpen
+        {
+            get { return _isOpen; }
+        }
+
+        public bool Used
+        {
+            get { return used; }
+        }
+
+        public Pokeball(Pokemon pokemon)
+        {
+            _pokemon = pokemon;
+            used = false;
+        }
+
         public void Open()
         {
-            isOpen = true;
+            if (!used)
+            {
+                _isOpen = true;
+            }
+            else
+            {
+                Console.WriteLine("Cannot open a used pokeball.");
+            }
         }
 
         public void Close()
         {
-            isOpen = false;
+            _isOpen = false;
         }
-
-        public bool IsOpen()
-        {
-            return isOpen;
-        }
-
     }
 }
