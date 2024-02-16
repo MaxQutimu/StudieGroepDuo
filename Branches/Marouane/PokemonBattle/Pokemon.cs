@@ -109,7 +109,7 @@ public abstract class Pokemon
 
 public sealed class Squirtle : Pokemon
 {
-    public Squirtle(string nickname) : base("Squirtle", nickname, PokemonType.Water, Strength.Water, Weakness.Electric)
+    public Squirtle(string nickname) : base("Squirtle", nickname, PokemonType.Water, Strength.Water, Weakness.Grass)
     {
     }
 

@@ -1,28 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\school\\programmeren-jaar2\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\PokemonBattle.csproj": {}
+    "C:\\Users\\qutim\\Desktop\\Szkoła\\Duo\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\PokemonBattle.csproj": {}
   },
   "projects": {
-    "C:\\school\\programmeren-jaar2\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\PokemonBattle.csproj": {
+    "C:\\Users\\qutim\\Desktop\\Szkoła\\Duo\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\PokemonBattle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\school\\programmeren-jaar2\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\PokemonBattle.csproj",
+        "projectUniqueName": "C:\\Users\\qutim\\Desktop\\Szkoła\\Duo\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\PokemonBattle.csproj",
         "projectName": "PokemonBattle",
-        "projectPath": "C:\\school\\programmeren-jaar2\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\PokemonBattle.csproj",
-        "packagesPath": "C:\\Users\\marou\\.nuget\\packages\\",
-        "outputPath": "C:\\school\\programmeren-jaar2\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\obj\\",
+        "projectPath": "C:\\Users\\qutim\\Desktop\\Szkoła\\Duo\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\PokemonBattle.csproj",
+        "packagesPath": "C:\\Users\\qutim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\qutim\\Desktop\\Szkoła\\Duo\\StudieGroepDuo\\Branches\\Marouane\\PokemonBattle\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\marou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\qutim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
         },
         "frameworks": {
           "net8.0": {

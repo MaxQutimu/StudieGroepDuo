@@ -12,23 +12,72 @@ using System.Threading.Tasks;
 
 namespace PokemonBattle
 {
+    public enum PokemonType
+    {
+        Water,
+        Grass,
+        Fire,
+    }
+
+    public enum Strength
+    {
+        Fire,
+        Water,
+        Grass,
+    }
+
+    public enum Weakness
+    {
+        Fire,
+        Grass,
+        Water,
+    }
     abstract class Pokemon
     {
         // Properties with private setters for encapsulation
-        public string Name;
-        public string Nickname;
-        public string Type;
-        public string Strength;
-        public string Weakness;
+        public string _name;
+        public string _nickname;
+        private PokemonType _type;
+        private Strength _strength;
+        private Weakness _weakness;
 
-        // Constructor to initialize Pokemon properties
-        public Pokemon(string name, string nickname, string type, string strength, string weakness)
+        public string Name
         {
-            this.Name = name;
-            this.Nickname = nickname;
-            this.Type = type;
-            this.Strength = strength;
-            this.Weakness = weakness;
+            get { return _name; }
+            private set { _name = value; }
+        }
+
+        public string Nickname
+        {
+            get { return _nickname; }
+            private set { _nickname = value; }
+        }
+
+        public PokemonType Type
+        {
+            get { return _type; }
+            private set { _type = value; }
+        }
+
+        public Strength Strength
+        {
+            get { return _strength; }
+            private set { _strength = value; }
+        }
+
+        public Weakness Weakness
+        {
+            get { return _weakness; }
+            private set { _weakness = value; }
+        }
+
+        protected Pokemon(string name, string nickname, PokemonType type, Strength strength, Weakness weakness)
+        {
+            Name = name;
+            Nickname = nickname;
+            Type = type;
+            Strength = strength;
+            Weakness = weakness;
         }
         public abstract string battleCry();
         // Method to display Pokemon information

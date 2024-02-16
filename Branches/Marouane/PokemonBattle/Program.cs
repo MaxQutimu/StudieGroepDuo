@@ -39,15 +39,16 @@ class PokemonBattleProgram
             new Pokeball(Squirtle_watery)
         };
 
-        // Create instances of Trainers using constructor
-        Trainer TrainerOne = new Trainer("", belt1);
-        Trainer TrainerTwo = new Trainer("", belt2);
-       
         // Giving names to trainers
         Console.WriteLine("Giva a name to first trainer");
-        TrainerOne.name = Console.ReadLine();
+        string NameOne = Console.ReadLine();
         Console.WriteLine("Giva a name to second trainer");
-        TrainerTwo.name = Console.ReadLine();
+        string NameTwo = Console.ReadLine();
+        // Create instances of Trainers using constructor
+        Trainer TrainerOne = new Trainer(NameOne, belt1);
+        Trainer TrainerTwo = new Trainer(NameTwo, belt2);
+       
+        
         Arena arena = new Arena();
         arena.ArenaBattle(TrainerOne, TrainerTwo);
 

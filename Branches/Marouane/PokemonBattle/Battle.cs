@@ -31,20 +31,21 @@ namespace PokemonBattle
         public Pokemon ThrowBall(Trainer trainer)
         {
 
-            int RPI = RP.Next(0, trainer.belt.Count); // Use RP for random number generation
+            int RPI = RP.Next(0, trainer.Belt.Count); // Use RP for random number generation
 
             // Find an unused Pokeball
-            while (trainer.belt[RPI].used)
+            while (trainer.Belt[RPI].Used)
             {
-                RPI = RP.Next(0, trainer.belt.Count);
+                RPI = RP.Next(0, trainer.Belt.Count);
             }
 
             // Mark the Pokeball as used
-            trainer.belt[RPI].used = true;
+            trainer.Belt[RPI].used = true;
 
-            Console.WriteLine(trainer.name + " Throws his pokeball with: " + trainer.belt[RPI].pokemon.Name + "\n");
+            Console.WriteLine(trainer.Name + " Throws his pokeball with: " + trainer.Belt[RPI].Pokemon.Name + "\n");
 
-            return trainer.belt[RPI].pokemon;
+
+            return (Pokemon)trainer.Belt[RPI].Pokemon;
 
         }
         public void ElementalBattle()
@@ -58,52 +59,52 @@ namespace PokemonBattle
             bool tie = false;
            
 
-            while (!trainer1.belt.All(p => p.used) && !trainer2.belt.All(p => p.used)){
+            while (!trainer1.Belt.All(p => p.Used) && !trainer2.Belt.All(p => p.Used)){
                 Console.WriteLine("Round: " + Arena.RoundUp());
+   
                 if (tie == true){
-                    if(LastWinner != trainer1.name)
+                    if(LastWinner != trainer1.Name)
                     {
                         pokemon2 = ThrowBall(trainer2);
-                        LastWinner = trainer1.name;
+                        LastWinner = trainer1.Name;
                         tie = false;
 
                     }
-                    else if (LastWinner != trainer2.name)
+                    else if (LastWinner != trainer2.Name)
                     {
                         pokemon1 = ThrowBall(trainer1);
-                        LastWinner = trainer2.name;
+                        LastWinner = trainer2.Name;
                         tie = false;
 
                     }
                 }
-                else if (LastWinner != trainer1.name && LastWinner != "")
+                else if (LastWinner != trainer1.Name && LastWinner != "")
                 {
                     pokemon1 = ThrowBall(trainer1);
 
                 }
-                else if (LastWinner != trainer2.name && LastWinner != "")
+                else if (LastWinner != trainer2.Name && LastWinner != "")
                 {
                     pokemon2 = ThrowBall(trainer2);
                 }
-                if (pokemon1 != null && pokemon2 != null)
-                {
-                    Console.WriteLine("Pokemons on board : Trainer's " + trainer1.name + " pokemon : " + pokemon1.Name + " Trainer's " + trainer2.name + " Pokemon : " + pokemon2.Name + "\n");
+                
+                    Console.WriteLine("Pokemons on board : Trainer's " + trainer1.Name + " pokemon : " + pokemon1.Name + " Trainer's " + trainer2.Name + " Pokemon : " + pokemon2.Name + "\n");
                     // Determine the winner based on the elemental advantage
-                    if ((pokemon1.Type == "Fire" && pokemon2.Type == "Grass") ||
-                        (pokemon1.Type == "Grass" && pokemon2.Type == "Water") ||
-                        (pokemon1.Type == "Water" && pokemon2.Type == "Fire"))
+                    if ((pokemon1.Type == PokemonType.Fire && pokemon2.Type == PokemonType.Grass)  ||
+                        (pokemon1.Type == PokemonType.Grass && pokemon2.Type == PokemonType.Water) ||
+                        (pokemon1.Type == PokemonType.Water && pokemon2.Type == PokemonType.Fire))
                     {
-                        Console.WriteLine(trainer1.name + " wins the elemental battle!");
-                        LastWinner = trainer1.name;
+                        Console.WriteLine(trainer1.Name + " wins the elemental battle!");
+                        LastWinner = trainer1.Name;
 
 
                     }
-                    else if ((pokemon2.Type == "Fire" && pokemon1.Type == "Grass") ||
-                             (pokemon2.Type == "Grass" && pokemon1.Type == "Water") ||
-                             (pokemon2.Type == "Water" && pokemon1.Type == "Fire"))
+                    else if ((pokemon2.Type == PokemonType.Fire && pokemon1.Type == PokemonType.Grass) ||
+                             (pokemon2.Type == PokemonType.Grass && pokemon1.Type == PokemonType.Water) ||
+                             (pokemon2.Type == PokemonType.Water && pokemon1.Type == PokemonType.Fire))
                     {
-                        Console.WriteLine(trainer2.name + " wins the elemental battle!");
-                        LastWinner = trainer2.name;
+                        Console.WriteLine(trainer2.Name + " wins the elemental battle!");
+                        LastWinner = trainer2.Name;
                     }
                     else
                     {
@@ -111,7 +112,7 @@ namespace PokemonBattle
                         tie = true;
                         
                    
-                    }
+                    
                 }
             }
             }

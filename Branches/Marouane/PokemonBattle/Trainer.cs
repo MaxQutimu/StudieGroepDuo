@@ -6,10 +6,12 @@ namespace PokemonBattle
     internal class Trainer
     {
         private string _name;
-        private readonly List<Pokeball> _belt;
+        private List<Pokeball> _belt;
 
         // Constant to replace magic number
         private const int MaxPokeballsOnBelt = 6;
+        readonly object belt;
+        internal  string name;
 
         public string Name
         {

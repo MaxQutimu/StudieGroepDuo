@@ -2,11 +2,11 @@
 
 namespace PokemonBattle
 {
-    internal sealed class Pokeball
+    class Pokeball
     {
         private Pokemon _pokemon;
         private bool _isOpen;
-        private readonly bool _used;
+        internal bool used;
 
         public Pokemon Pokemon
         {
@@ -20,18 +20,18 @@ namespace PokemonBattle
 
         public bool Used
         {
-            get { return _used; }
+            get { return used; }
         }
 
         public Pokeball(Pokemon pokemon)
         {
             _pokemon = pokemon;
-            _used = false;
+            used = false;
         }
 
         public void Open()
         {
-            if (!_used)
+            if (!used)
             {
                 _isOpen = true;
             }
